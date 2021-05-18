@@ -4,6 +4,16 @@ export const styles = StyleSheet.create({
     contenedor: {
         width:'100%',
         height:'50px',
-        backgroundColor: 'blue'
+        backgroundColor: 'blue',
+        display:'flex',
     },
+    carrito:{
+        flex:10
+    },
+    dinero:{
+        flex:80
+    },
+    menu:{
+        flex:10
+    }
 });
