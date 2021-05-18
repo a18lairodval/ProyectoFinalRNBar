@@ -6,6 +6,9 @@ export const styles = StyleSheet.create({
         height:'50px',
         backgroundColor: 'blue',
         display:'flex',
+        alignContent:'center',
+        algorithm:'center',
+
     },
     carrito:{
         flex:10

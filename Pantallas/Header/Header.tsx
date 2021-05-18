@@ -19,13 +19,13 @@ class Inici extends Component {
         return (
             <View style={styles.contenedor}>
                 <View style={styles.carrito}>
-                    <backgroundImage ></backgroundImage>
+                    {/*<backgroundImage ></backgroundImage>*/}
                 </View>
                 <View style={styles.dinero}>
                     <Text>hola</Text>
                 </View>
                 <View style={styles.menu}>
-                    <backgroundImage></backgroundImage>
+                    {/*<backgroundImage></backgroundImage>*/}
                 </View>
             </View>
         );

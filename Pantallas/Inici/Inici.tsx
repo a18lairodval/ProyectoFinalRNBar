@@ -1,8 +1,9 @@
 import React, {Component, PureComponent} from 'react';
-import { TouchableOpacity, View, Text, TouchableHighlight, ImageBackground} from 'react-native';
+import { TouchableOpacity,Button, View, Text, TouchableHighlight, ImageBackground} from 'react-native';
 import { styles } from './Styles';
-
+import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 class Inici extends Component {
+    private props: any;
     constructor(props: any) {
         super(props);
 
@@ -21,6 +22,10 @@ class Inici extends Component {
               <View style={styles.titol}>
                 <Text>Nuestros productos</Text>
               </View>
+              <Button
+                  title="Go to Profile"
+                  onPress={() => this.props.navigation.navigate('Productes')}
+              />
               <View style={styles.productos}>
                   <View style={styles.column}>
                       <View
