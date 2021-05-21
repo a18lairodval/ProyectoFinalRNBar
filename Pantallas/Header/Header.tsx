@@ -29,11 +29,11 @@ class Header extends Component {
             }}>
                 <View style={{flex:20,
                     backgroundColor: 'red'}}>
-                        <View style={{flex:1, backgroundColor:'orange'}}>
-                            {/*<Image*/}
-                            {/*    style={{  }}*/}
-                            {/*    source={require('../../complementos/iconos/carrito.png')}*/}
-                            {/*/>*/}
+                        <View style={{flex:1, alignContent: 'center', display: 'flex', justifyContent: 'center'}}>
+                            <Image
+                                style={{ width:40, height: 40, marginLeft: '20%'}}
+                                source={require('../../complementos/iconos/carrito.png')}
+                            />
                         </View>
                 </View>
                 <View style={{flex:60}}>
