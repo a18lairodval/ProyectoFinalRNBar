@@ -8,7 +8,7 @@ import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 const AppNavigator = createSwitchNavigator(
     {
         pantallaInici: Inici,
-        Profile: Productes
+        pantallProductes: Productes
     },
     {
         initialRouteName: "pantallaInici"
@@ -19,7 +19,7 @@ const AppContainer = createAppContainer(AppNavigator);
 class App extends React.Component {
   render() {
     return (
-        <View style={{backgroundColor:"red", width: '100%', height: '100%'}}>
+        <View style={{backgroundColor:"#F8F8F8", width: '100%', height: '100%'}}>
           {/*<Header/>*/}
           {/*<Inici/>*/}
             <AppContainer />

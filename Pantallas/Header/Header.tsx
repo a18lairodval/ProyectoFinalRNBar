@@ -4,7 +4,7 @@ import { View, Text, Image, Button, SafeAreaView, Alert} from 'react-native';
 //import moneda from './../../complementos/iconos/moneda.png';
 //import menu from './../../complementos/iconos/menu.png';
 import { styles } from './Styles';
-class Inici extends Component {
+class Header extends Component {
     constructor(props: any) {
         super(props);
 
@@ -31,4 +31,4 @@ class Inici extends Component {
         );
     }
 }
-export default Inici;
+export default Header;

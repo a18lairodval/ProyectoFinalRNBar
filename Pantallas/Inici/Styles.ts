@@ -5,11 +5,9 @@ export const styles = StyleSheet.create({
         width:'100%',
         height:'100%',
         display: 'flex',
-        backgroundColor: 'orange'
     },
     titol: {
         flex: 10,
-        backgroundColor: 'white',
         alignItems: 'center',
     },
     productos: {
@@ -21,8 +19,6 @@ export const styles = StyleSheet.create({
     },
     contenedorProducto: {
         width: '100%',
-        backgroundColor: 'black',
-        alignItems: 'center',
     },
     column: {
         flex:50,
@@ -34,18 +30,26 @@ export const styles = StyleSheet.create({
         height: '100%',
         resizeMode: 'contain',
         borderRadius: 8,
-       // verticalAlign: 'middle',
-        alignItems: 'center',
+        alignItems:'center',
 
     },
     contenedorImg:{
         width: '100%',
-        height: 200,
+        height: 100,
         resizeMode: 'contain',
         borderRadius: 8,
-        margin: 10,
+        margin: 3,
     },
-    texto:{
+    alinearVerticalmente:{
+        display:'flex',
+        flexDirection: 'row',
+        alignItems:'center',
+        width: '100%',
+        height: '100%',
+        alignContent:'center'
+    },
+    textos:{
         color:'white',
+        fontSize: 24,
     }
 });
