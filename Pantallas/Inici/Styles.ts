@@ -50,6 +50,9 @@ export const styles = StyleSheet.create({
     },
     textos:{
         color:'white',
+        fontWeight: 'bold',
+        width:'100%',
         fontSize: 24,
+        textAlign: 'center'
     }
 });

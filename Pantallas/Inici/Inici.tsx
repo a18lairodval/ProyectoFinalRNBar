@@ -34,10 +34,12 @@ class Inici extends Component {
                           >
                               <ImageBackground
                                   style={styles.imagen}
-                                  imageStyle={{ borderRadius: 6}}
-                                  source={require('../../complementos/fotos/Bocata.png')}
+                                  imageStyle={{borderRadius: 6}}
+                                  source={require('../../complementos/fotos/Iberico.jpg')}
                               >
-                                  <Text>Pastas</Text>
+                                  <View style={styles.alinearVerticalmente}>
+                                      <Text style={styles.textos}>Bocatas</Text>
+                                  </View>
                               </ImageBackground>
                           </TouchableOpacity>
                       </View>
@@ -50,10 +52,12 @@ class Inici extends Component {
                           >
                               <ImageBackground
                                   style={styles.imagen}
-                                  imageStyle={{ borderRadius: 6}}
-                                  source={require('../../complementos/fotos/Bocata.png')}
+                                  imageStyle={{borderRadius: 6}}
+                                  source={require('../../complementos/fotos/Iberico.jpg')}
                               >
-                                  <Text>Snaks</Text>
+                                  <View style={styles.alinearVerticalmente}>
+                                      <Text style={styles.textos}>Bocatas</Text>
+                                  </View>
                               </ImageBackground>
                           </TouchableOpacity>
                       </View>
@@ -68,10 +72,12 @@ class Inici extends Component {
                           >
                               <ImageBackground
                                   style={styles.imagen}
-                                  imageStyle={{ borderRadius: 6}}
-                                  source={require('../../complementos/fotos/Bocata.png')}
+                                  imageStyle={{borderRadius: 6}}
+                                  source={require('../../complementos/fotos/Iberico.jpg')}
                               >
-                                  <Text>Bebidas</Text>
+                                  <View style={styles.alinearVerticalmente}>
+                                      <Text style={styles.textos}>Bocatas</Text>
+                                  </View>
                               </ImageBackground>
                           </TouchableOpacity>
                       </View>
@@ -89,7 +95,7 @@ class Inici extends Component {
                                   source={require('../../complementos/fotos/Iberico.jpg')}
                               >
                                   <View style={styles.alinearVerticalmente}>
-                                      <Text  style={styles.textos}>Bocatas</Text>
+                                      <Text style={styles.textos}>Bocatas</Text>
                                   </View>
                               </ImageBackground>
                           </TouchableOpacity>

@@ -21,27 +21,40 @@ class Header extends Component {
         return (
             <View style={{
                 height:50,
-                backgroundColor: 'blue',
+                backgroundColor:"#F5F5F5",
                 display:'flex',
                 alignContent:'center',
                 algorithm:'center',
                 flexDirection:'row'
             }}>
-                <View style={{flex:20,
-                    backgroundColor: 'red'}}>
-                        <View style={{flex:1, alignContent: 'center', display: 'flex', justifyContent: 'center'}}>
-                            <Image
+                <View style={{flex:20}}>
+                    <View style={{flex:1, alignContent: 'center', display: 'flex', justifyContent: 'center'}}>
+                        <TouchableOpacity
+                            //style={styles.button}
+                            onPress={() => this.props.navigation.navigate('pantallProductes')}
+                        >
+                            <ImageBackground
                                 style={{ width:40, height: 40, marginLeft: '20%'}}
                                 source={require('../../complementos/iconos/carrito.png')}
                             />
-                        </View>
+                        </TouchableOpacity>
+                    </View>
                 </View>
                 <View style={{flex:60}}>
-                    <Text>hola</Text>
+                    <Text style={{width:'100%', fontWeight: 'bold', textAlign:'center', marginTop: 10, fontSize: 18}}>CANTINA PEDRALBES</Text>
                 </View>
-                <View style={{flex:20,
-                    backgroundColor: 'red'}}>
-                    {/*<backgroundImage></backgroundImage>*/}
+                <View style={{flex:20}}>
+                    <View style={{flex:1, alignContent: 'center', display: 'flex', justifyContent: 'center'}}>
+                        <TouchableOpacity
+                            //style={styles.button}
+                            onPress={() => this.props.navigation.navigate('pantallProductes')}
+                        >
+                            <ImageBackground
+                                style={{ width:40, height: 40, marginLeft: '20%'}}
+                                source={require('../../complementos/iconos/menu.png')}
+                            />
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
         );
