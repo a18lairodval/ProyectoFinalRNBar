@@ -4,11 +4,13 @@ import Inici from "./Pantallas/Inici/Inici";
 import Header from "./Pantallas/Header/Header";
 import Productes from "./Pantallas/productes/productes";
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
+import bocatas from "./Pantallas/Bocatas/bocatas";
 
 const AppNavigator = createSwitchNavigator(
     {
         pantallaInici: Inici,
-        pantallProductes: Productes
+        pantallProductes: Productes,
+        pantallaBocata: bocatas
     },
     {
         initialRouteName: "pantallaInici"

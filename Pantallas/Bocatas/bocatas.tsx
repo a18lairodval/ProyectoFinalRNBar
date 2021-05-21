@@ -28,4 +28,4 @@ class bocatas extends Component{
         );
     }
 }
-export default bocatas
+export default bocatas;

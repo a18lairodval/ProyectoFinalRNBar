@@ -30,7 +30,7 @@ class Inici extends Component {
                       >
                           <TouchableOpacity
                               style={styles.button}
-                              onPress={() => this.props.navigation.navigate('pantallProductes')}
+                              onPress={() => this.props.navigation.navigate('pantallaBocata')}
                           >
                               <ImageBackground
                                   style={styles.imagen}
@@ -48,7 +48,7 @@ class Inici extends Component {
                       >
                           <TouchableOpacity
                               style={styles.button}
-                              onPress={() => this.props.navigation.navigate('pantallProductes')}
+                              onPress={() => this.props.navigation.navigate('pantallaBocata')}
                           >
                               <ImageBackground
                                   style={styles.imagen}
