@@ -19,7 +19,7 @@ class Inici extends Component {
 
         return (
           <View style={styles.contenedor}>
-              {/*<Header/>*/}
+              <Header/>
               <View style={styles.titol}>
                 <Text>Nuestros productos</Text>
               </View>
