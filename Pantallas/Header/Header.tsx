@@ -4,7 +4,7 @@ import { View, Text, Image, Button, ImageBackground, TouchableOpacity, Alert} fr
 //import moneda from './../../complementos/iconos/moneda.png';
 //import menu from './../../complementos/iconos/menu.png';
 import { styles } from './Styles';
-class Header extends Component {
+class Header extends Component <any, any>{
     private props: any;
     constructor(props: any) {
 
@@ -17,7 +17,8 @@ class Header extends Component {
     }
 
     render() {
-
+        let isLogged=true;
+        let productos=[1,12,23, 1,12,1,12,23, 1,12,1,12,23, 1,12];
         return (
             <View style={{
                 height:50,
@@ -27,21 +28,34 @@ class Header extends Component {
                 algorithm:'center',
                 flexDirection:'row'
             }}>
-                <View style={{flex:20}}>
-                    <View style={{flex:1, alignContent: 'center', display: 'flex', justifyContent: 'center'}}>
-                        <TouchableOpacity
-                            //style={styles.button}
-                            onPress={() => this.props.navigation.navigate('pantallProductes')}
-                        >
-                            <ImageBackground
-                                style={{ width:40, height: 40, marginLeft: '20%'}}
-                                source={require('../../complementos/iconos/carrito.png')}
-                            />
-                        </TouchableOpacity>
-                    </View>
-                </View>
+                <TouchableOpacity
+                    style={{flex:20, alignContent: 'center', display: 'flex', justifyContent: 'center'}}
+                    onPress={() => this.props.navigation.navigate('pantallaBocata')}
+                >
+                    <ImageBackground
+                        style={{ flex:1, marginHorizontal: '12%', marginVertical:'7%'}}
+                        resizeMode = "contain"
+                        source={require('../../complementos/iconos/carrito.png')}
+                    />
+                    {productos.length>0&& <View
+                        style={{backgroundColor:'red', position:'absolute', left:'63%', bottom:'7%', paddingHorizontal:productos.length>9?'4%':'8%', borderRadius:15}}>
+                        <Text style={{textAlign:'center', color:'white', fontSize:12}}>{productos.length}</Text>
+                    </View>}
+                </TouchableOpacity>
                 <View style={{flex:60}}>
-                    <Text style={{width:'100%', fontWeight: 'bold', textAlign:'center', marginTop: 10, fontSize: 18}}>CANTINA PEDRALBES</Text>
+                    <View style={{width:'100%' , textAlign:'center', marginTop: 10}}>
+                        {isLogged?
+                            <View style={{display:'flex', flexDirection:'row' }}>
+                                <View style={{flex:1}}/>
+                                <Text style={{fontWeight: 'bold',fontSize: 23, alignSelf:'center'}}>Credit: 6.40€</Text>
+                                {/*<Image source={require('../../complementos/iconos/moneda.png')}*/}
+                                {/*       */}
+                                {/*       style={{height: 30, width:30, backgroundColor:'blue'}}/>*/}
+                                <View style={{flex:1}}/>
+                            </View>
+                            :
+                            <Text style={{fontWeight: 'bold',fontSize: 18}}>CANTINA PEDRALBES</Text>}
+                    </View>
                 </View>
                 <View style={{flex:20}}>
                     <View style={{flex:1, alignContent: 'center', display: 'flex', justifyContent: 'center'}}>

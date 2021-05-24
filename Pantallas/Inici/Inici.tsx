@@ -1,5 +1,5 @@
 import React, {Component, PureComponent} from 'react';
-import { TouchableOpacity,Button, View, Text, TouchableHighlight,ImageBackground, Image} from 'react-native';
+import { TouchableOpacity,Button,ScrollView, View, Text, TouchableHighlight,ImageBackground, Image} from 'react-native';
 import Header from "./../Header/Header";
 import { styles } from './Styles';
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
@@ -8,100 +8,75 @@ class Inici extends Component {
     constructor(props: any) {
         super(props);
 
-        /* this.state = {
-
-         }*/
-
+    }
+    private categoria(item: any, index: number){
+        return(
+            <TouchableOpacity
+                style={styles.button}
+                onPress={() => this.props.navigation.navigate('pantallProductes')}
+            >
+                <ImageBackground
+                    style={styles.imagen}
+                    imageStyle={{borderRadius: 6}}
+                    source={require('../../complementos/fotos/Iberico.jpg')}
+                >
+                    <View style={styles.alinearVerticalmente}>
+                        <Text style={styles.textos}>{item.nom}</Text>
+                    </View>
+                </ImageBackground>
+            </TouchableOpacity>
+        )
     }
 
-
     render() {
+        const {state}=this.props.navigation;
+        let arrayCategorias=[
+            {
+                "id":1,
+                "nom":"Bocata",
+                "imagen":"../../complementos/fotos/Iberico.jpg"
+            },{
+                "id":2,
+                "nom":"Begudes",
+                "imagen":"../../complementos/fotos/Iberico.jpg"
+            },{
+                "id":3,
+                "nom":"Pastes",
+                "imagen":"../../complementos/fotos/Iberico.jpg"
+            },{
+                "id":4,
+                "nom":"Snaks",
+                "imagen":"../../complementos/fotos/Iberico.jpg"
+            }];
 
         return (
           <View style={styles.contenedor}>
-              <Header/>
+              <Header navigation={this.props.navigation}/>
               <View style={styles.titol}>
-                <Text>Nuestros productos</Text>
+                  <Text style={{fontSize: 20, fontWeight:'bold', margin: '5%'}}>Nuestros productos</Text>
               </View>
-              <View style={styles.productos}>
-                  <View style={styles.column}>
-                      <View
-                        style={styles.contenedorImg}
-                      >
-                          <TouchableOpacity
-                              style={styles.button}
-                              onPress={() => this.props.navigation.navigate('pantallaBocata')}
-                          >
-                              <ImageBackground
-                                  style={styles.imagen}
-                                  imageStyle={{borderRadius: 6}}
-                                  source={require('../../complementos/fotos/Iberico.jpg')}
-                              >
-                                  <View style={styles.alinearVerticalmente}>
-                                      <Text style={styles.textos}>Bocatas</Text>
-                                  </View>
-                              </ImageBackground>
-                          </TouchableOpacity>
+              {/*<ScrollView>*/}
+                  <View style={styles.productos}>
+                      <View style={styles.column}>
+                          {arrayCategorias.map((item: any, index: number) => {
+                              while (index < arrayCategorias.length / 2) {
+                                  return (
+                                      this.categoria(item, index)
+                                  )
+                              }
+                          })}
                       </View>
-                      <View
-                          style={styles.contenedorImg}
-                      >
-                          <TouchableOpacity
-                              style={styles.button}
-                              onPress={() => this.props.navigation.navigate('pantallaBocata')}
-                          >
-                              <ImageBackground
-                                  style={styles.imagen}
-                                  imageStyle={{borderRadius: 6}}
-                                  source={require('../../complementos/fotos/Iberico.jpg')}
-                              >
-                                  <View style={styles.alinearVerticalmente}>
-                                      <Text style={styles.textos}>Bocatas</Text>
-                                  </View>
-                              </ImageBackground>
-                          </TouchableOpacity>
+                      <View style={styles.column}>
+                          {arrayCategorias.map((item: any, index: number) => {
+                              while (index >= arrayCategorias.length / 2) {
+                                  return (
+                                      this.categoria(item, index)
+                                  )
+                              }
+                          })}
                       </View>
                   </View>
-                  <View style={styles.column}>
-                      <View
-                          style={styles.contenedorImg}
-                      >
-                          <TouchableOpacity
-                              style={styles.button}
-                              onPress={() => this.props.navigation.navigate('pantallProductes')}
-                          >
-                              <ImageBackground
-                                  style={styles.imagen}
-                                  imageStyle={{borderRadius: 6}}
-                                  source={require('../../complementos/fotos/Iberico.jpg')}
-                              >
-                                  <View style={styles.alinearVerticalmente}>
-                                      <Text style={styles.textos}>Bocatas</Text>
-                                  </View>
-                              </ImageBackground>
-                          </TouchableOpacity>
-                      </View>
-
-                      <View
-                          style={styles.contenedorImg}
-                      >
-                          <TouchableOpacity
-                              style={styles.button}
-                              onPress={() => this.props.navigation.navigate('pantallProductes')}
-                          >
-                              <ImageBackground
-                                  style={styles.imagen}
-                                  imageStyle={{borderRadius: 6}}
-                                  source={require('../../complementos/fotos/Iberico.jpg')}
-                              >
-                                  <View style={styles.alinearVerticalmente}>
-                                      <Text style={styles.textos}>Bocatas</Text>
-                                  </View>
-                              </ImageBackground>
-                          </TouchableOpacity>
-                      </View>
-                  </View>
-              </View>
+              {/*</ScrollView>*/}
           </View>
         );
     }

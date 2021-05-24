@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
     titol: {
         flex: 10,
         alignItems: 'center',
+        // backgroundColor:'red'
     },
     productos: {
         flex: 90,
@@ -16,6 +17,13 @@ export const styles = StyleSheet.create({
         flexDirection:'row'
 
 
+    },
+    button:{
+        width: '100%',
+        height: 100,
+        resizeMode: 'contain',
+        borderRadius: 8,
+        margin: 3,
     },
     contenedorProducto: {
         width: '100%',
@@ -34,11 +42,7 @@ export const styles = StyleSheet.create({
 
     },
     contenedorImg:{
-        width: '100%',
-        height: 100,
-        resizeMode: 'contain',
-        borderRadius: 8,
-        margin: 3,
+
     },
     alinearVerticalmente:{
         display:'flex',
