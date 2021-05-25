@@ -2,6 +2,125 @@ import React, {Component, PureComponent} from 'react';
 import { View, Text, Image, Button, SafeAreaView, Alert} from 'react-native';
 import { styles } from './Styles';
 import Header from "../Header/Header";
+
+const arrayProductes=[
+    {
+        "id":1,
+        "temperatura":"fred",
+        "nom":"Pernil",
+    },{
+        "id":2,
+        "temperatura":"fred",
+        "nom":"Nocilla",
+    },{
+        "id":3,
+        "temperatura":"fred",
+        "nom":"Formatge",
+    },{
+        "id":4,
+        "temperatura":"fred",
+        "nom":"Fuet",
+    },{
+        "id":5,
+        "temperatura":"fred",
+        "nom":"Pernil",
+    },{
+        "id":6,
+        "temperatura":"fred",
+        "nom":"Nocilla",
+    },{
+        "id":7,
+        "temperatura":"fred",
+        "nom":"Formatge",
+    },{
+        "id":8,
+        "temperatura":"fred",
+        "nom":"Fuet",
+    },{
+        "id":1,
+        "temperatura":"calent",
+        "nom":"Frankfurt",
+    },{
+        "id":2,
+        "temperatura":"calent",
+        "nom":"Bacó",
+    },{
+        "id":3,
+        "temperatura":"calent",
+        "nom":"Llom",
+    },{
+        "id":4,
+        "temperatura":"calent",
+        "nom":"Hamburguesa",
+    }];
+
+    const arraySnacks=[
+        {
+            "id":1,
+            "temperatura":"none",
+            "nom": "Patates",
+        },{
+            "id":2,
+            "temperatura": "none",
+            "nom": "Piruletas",
+        },{
+            "id":3,
+            "temperatura": "none",
+            "nom": "Kinder bueno",
+        },{
+            "id":4,
+            "temperatura": "none",
+            "nom": "Kit kat",
+        }
+    ];
+
+    const arrayBegudes=[
+        {
+            "id":1,
+            "temperatura": "fred",
+            "nom": "CocaCola",
+        },{
+            "id":2,
+            "temperatura": "fred",
+            "nom": "Fanta",
+        },{
+            "id":3,
+            "temperatura": "fred",
+            "nom": "Aigua",
+        },{
+            "id":4,
+            "temperatura": "fred",
+            "nom": "Aquarius",
+        },{
+            "id":5,
+            "temperatura": "none",
+            "nom": "Bifrutas",
+        },{
+            "id":6,
+            "temperatura": "calent",
+            "nom": "Cafe",
+        },{
+            "id":7,
+            "temperatura": "calent",
+            "nom": "Infusió",
+        }
+    ];
+
+    const arrayPastes=[
+        {
+            "id":1,
+            "temperatura": "none",
+            "nom": "Donut",
+        },{
+            "id":2,
+            "temperatura": "none",
+            "nom": "Caracola",
+        },{
+            "id":3,
+            "temperatura": "none",
+            "nom": "Crosant",
+        }
+    ];
 class Productes extends Component {
     private props: any;
     constructor(props: any) {
@@ -11,7 +130,11 @@ class Productes extends Component {
 
          }*/
 
+        
     }
+
+    
+
     private imprimirProductos(productes){
         console.log('ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd')
         console.log(productes)
@@ -20,62 +143,13 @@ class Productes extends Component {
             console.log(productes[i])
             return(
                 <View>
-                    <text>{productes[i]}</text>
+                    <Button title= {arrayProductes[productes[i]].nom}> </Button>
                 </View>
             )
         }
     }
     render() {
-        let arrayProductes=[
-            {
-                "id":1,
-                "temperatura":"fred",
-                "nom":"Pernil",
-            },{
-                "id":2,
-                "temperatura":"fred",
-                "nom":"Nocilla",
-            },{
-                "id":3,
-                "temperatura":"fred",
-                "nom":"Formatge",
-            },{
-                "id":4,
-                "temperatura":"fred",
-                "nom":"Fuet",
-            },{
-                "id":5,
-                "temperatura":"fred",
-                "nom":"Pernil",
-            },{
-                "id":6,
-                "temperatura":"fred",
-                "nom":"Nocilla",
-            },{
-                "id":7,
-                "temperatura":"fred",
-                "nom":"Formatge",
-            },{
-                "id":8,
-                "temperatura":"fred",
-                "nom":"Fuet",
-            },{
-                "id":1,
-                "temperatura":"calent",
-                "nom":"Frankfurt",
-            },{
-                "id":2,
-                "temperatura":"calent",
-                "nom":"Bacó",
-            },{
-                "id":3,
-                "temperatura":"calent",
-                "nom":"Llom",
-            },{
-                "id":4,
-                "temperatura":"calent",
-                "nom":"Hamburguesa",
-            }];
+       
             let producteFred=[];
             let producteCalent=[];
             let producteNone=[];
@@ -87,9 +161,7 @@ class Productes extends Component {
             }else{
                 producteNone.push(index);
             }
-        })
-
-
+        });
 
         return (
             <View style={styles.contenedor}>
@@ -112,7 +184,7 @@ class Productes extends Component {
                     </View>
                     :
                     <View>
-                        <Text>Entra</Text>
+                        <Text>Snacks</Text>
                         {this.imprimirProductos(producteNone)}
                     </View>
                 }
@@ -121,3 +193,5 @@ class Productes extends Component {
     }
 }
 export default Productes;
+
+
