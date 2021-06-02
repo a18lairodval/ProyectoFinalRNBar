@@ -133,8 +133,6 @@ class Productes extends Component {
         
     }
 
-
-
     private imprimirProducto(producte){
         console.log('Productes '+ producte.nom)
         return(
@@ -143,6 +141,7 @@ class Productes extends Component {
             </View>
         )
     }
+
     render() {
        
             let producteFred=[];
@@ -177,7 +176,6 @@ class Productes extends Component {
                         <Text>Productes calents</Text>
                         <View>
                             {producteCalent.map((item: any) => {
-                                console.log(item);
                                 this.imprimirProducto(arrayProductes[item]);
                             })}
                         </View>
