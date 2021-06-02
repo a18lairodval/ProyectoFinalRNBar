@@ -3,8 +3,10 @@ import { View, Text, Image, Button, ImageBackground, TouchableOpacity, Alert} fr
 //import carritoCompra from './../../complementos/iconos/carrito.png';
 //import moneda from './../../complementos/iconos/moneda.png';
 //import menu from './../../complementos/iconos/menu.png';
+import Carousel from 'react-native-snap-carousel';
 import { styles } from './Styles';
 class Header extends Component <any, any>{
+    private _carousel: any;
     private props: any;
     constructor(props: any) {
 

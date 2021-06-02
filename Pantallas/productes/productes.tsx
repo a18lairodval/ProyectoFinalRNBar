@@ -37,19 +37,19 @@ const arrayProductes=[
         "temperatura":"fred",
         "nom":"Fuet",
     },{
-        "id":1,
+        "id":9,
         "temperatura":"calent",
         "nom":"Frankfurt",
     },{
-        "id":2,
+        "id":10,
         "temperatura":"calent",
         "nom":"Bacó",
     },{
-        "id":3,
+        "id":11,
         "temperatura":"calent",
         "nom":"Llom",
     },{
-        "id":4,
+        "id":12,
         "temperatura":"calent",
         "nom":"Hamburguesa",
     }];
@@ -133,20 +133,15 @@ class Productes extends Component {
         
     }
 
-    
 
-    private imprimirProductos(productes){
-        console.log('ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd')
-        console.log(productes)
 
-        for(let i=0; i<productes.length;i++){
-            console.log(productes[i])
-            return(
-                <View>
-                    <Button title= {arrayProductes[productes[i]].nom}> </Button>
-                </View>
-            )
-        }
+    private imprimirProducto(producte){
+        console.log('Productes '+ producte.nom)
+        return(
+            <View>
+                <Button title= {producte.nom}> </Button>
+            </View>
+        )
     }
     render() {
        
@@ -175,17 +170,24 @@ class Productes extends Component {
                     <View>
                         <Text>Productes freds</Text>
                         <View>
-                            {this.imprimirProductos(producteFred)}
+                            {producteFred.map((item: any) => {
+                                this.imprimirProducto(arrayProductes[item]);
+                            })}
                         </View>
                         <Text>Productes calents</Text>
                         <View>
-                            {this.imprimirProductos(producteCalent)}
+                            {producteCalent.map((item: any) => {
+                                console.log(item);
+                                this.imprimirProducto(arrayProductes[item]);
+                            })}
                         </View>
                     </View>
                     :
                     <View>
                         <Text>Snacks</Text>
-                        {this.imprimirProductos(producteNone)}
+                        {producteNone.map((item: any) => {
+                            this.imprimirProducto(arrayProductes[item]);
+                        })}
                     </View>
                 }
             </View>
