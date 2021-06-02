@@ -38,7 +38,7 @@ class Inici extends Component {
             },{
                 "id":2,
                 "nom":"Begudes",
-                "imagen":"../../complementos/fotos/Iberico.jpg"
+                "imagen":"../../complementos/fotos/Pasta.jpeg"
             },{
                 "id":3,
                 "nom":"Pastes",

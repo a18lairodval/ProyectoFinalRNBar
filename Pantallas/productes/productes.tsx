@@ -2,20 +2,24 @@ import React, {Component, PureComponent} from 'react';
 import { View, Text, Image, Button, SafeAreaView, Alert} from 'react-native';
 import { styles } from './Styles';
 import Header from "../Header/Header";
+import Popup from 'react-native-popup';
 
 const arrayProductes=[
     {
         "id":1,
         "temperatura":"fred",
         "nom":"Pernil",
+        "descripcio": "Hola",
     },{
         "id":2,
         "temperatura":"fred",
         "nom":"Nocilla",
+        "descripcio": "Holaa",
     },{
         "id":3,
         "temperatura":"fred",
         "nom":"Formatge",
+        "descripcio": "Holaaa",
     },{
         "id":4,
         "temperatura":"fred",
@@ -40,6 +44,7 @@ const arrayProductes=[
         "id":1,
         "temperatura":"calent",
         "nom":"Frankfurt",
+        "descripcio": "Holaaa",
     },{
         "id":2,
         "temperatura":"calent",
@@ -111,14 +116,17 @@ const arrayProductes=[
             "id":1,
             "temperatura": "none",
             "nom": "Donut",
+            "descripcio": "a",
         },{
             "id":2,
             "temperatura": "none",
             "nom": "Caracola",
+            "descripcio": "Adios",
         },{
             "id":3,
             "temperatura": "none",
             "nom": "Crosant",
+            "descripcio": "Hola",
         }
     ];
 class Productes extends Component {
@@ -129,12 +137,8 @@ class Productes extends Component {
         /* this.state = {
 
          }*/
-
-        
     }
-
     
-
     private imprimirProductos(productes){
         console.log('ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd')
         console.log(productes)
@@ -142,8 +146,11 @@ class Productes extends Component {
         for(let i=0; i<productes.length;i++){
             console.log(productes[i])
             return(
+                
                 <View>
-                    <Button title= {arrayProductes[productes[i]].nom}> </Button>
+                    <Button title= {arrayProductes[productes[i]].nom}
+                     onPress={() => Alert.alert(arrayProductes[productes[i]].descripcio)}></Button>
+                     
                 </View>
             )
         }
