@@ -3,8 +3,9 @@ import { View, Text, Image, Button, ImageBackground, TouchableOpacity, Alert} fr
 //import carritoCompra from './../../complementos/iconos/carrito.png';
 //import moneda from './../../complementos/iconos/moneda.png';
 //import menu from './../../complementos/iconos/menu.png';
-import Carousel from 'react-native-snap-carousel';
+
 import { styles } from './Styles';
+import {GlobalVariables} from "../../global/variables";
 class Header extends Component <any, any>{
     private _carousel: any;
     private props: any;
@@ -21,6 +22,7 @@ class Header extends Component <any, any>{
     render() {
         let isLogged=true;
         let productos=[1,12,23, 1,12,1,12,23, 1,12,1,12,23, 1,12];
+
         return (
             <View style={{
                 height:50,
@@ -63,7 +65,10 @@ class Header extends Component <any, any>{
                     <View style={{flex:1, alignContent: 'center', display: 'flex', justifyContent: 'center'}}>
                         <TouchableOpacity
                             //style={styles.button}
-                            onPress={() => this.props.navigation.navigate('pantallProductes')}
+                            onPress={() => {
+                                //this.props.navigation.navigate('pantallProductes');
+                                GlobalVariables.mainCarousel.snapToNext();
+                            }}
                         >
                             <ImageBackground
                                 style={{ width:40, height: 40, marginLeft: '20%'}}
@@ -73,6 +78,7 @@ class Header extends Component <any, any>{
                     </View>
                 </View>
             </View>
+
         );
     }
 }
