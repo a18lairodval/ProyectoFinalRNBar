@@ -18,7 +18,7 @@ class Inici extends Component {
                 <ImageBackground
                     style={styles.imagen}
                     imageStyle={{borderRadius: 6}}
-                    source={require('../../complementos/fotos/Iberico.jpg')}
+                    source={item.imagen}
                 >
                     <View style={styles.alinearVerticalmente}>
                         <Text style={styles.textos}>{item.nom}</Text>
@@ -34,19 +34,19 @@ class Inici extends Component {
             {
                 "id":1,
                 "nom":"Bocata",
-                "imagen":"../../complementos/fotos/Iberico.jpg"
+                "imagen":require("../../complementos/fotos/Iberico.jpg")
             },{
                 "id":2,
                 "nom":"Begudes",
-                "imagen":"../../complementos/fotos/Iberico.jpg"
+                "imagen":require("../../complementos/fotos/Iberico.jpg")
             },{
                 "id":3,
                 "nom":"Pastes",
-                "imagen":"../../complementos/fotos/Iberico.jpg"
+                "imagen":require("../../complementos/fotos/Iberico.jpg")
             },{
                 "id":4,
                 "nom":"Snaks",
-                "imagen":"../../complementos/fotos/Iberico.jpg"
+                "imagen":require("../../complementos/fotos/Iberico.jpg")
             }];
 
         return (
