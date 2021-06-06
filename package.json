@@ -14,8 +14,8 @@
     "react-native": "0.64.0",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-grid-component": "^2.0.1",
-    "react-native-snap-carousel": "^3.9.1",
     "react-native-popup": "^0.6.1",
+    "react-native-snap-carousel": "^3.9.1",
     "react-native-super-grid": "^4.1.1",
     "react-navigation": "^4.4.4"
   },

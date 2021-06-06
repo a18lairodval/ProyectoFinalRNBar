@@ -1,5 +1,5 @@
 import React, {Component, PureComponent} from 'react';
-import { View, Text, Image, Button, SafeAreaView, Alert} from 'react-native';
+import { View, Text, Image, Button, SafeAreaView, Alert, StyleSheet} from 'react-native';
 import { styles } from './Styles';
 import Header from "../Header/Header";
 import Popup from 'react-native-popup';
@@ -90,11 +90,17 @@ class Productes extends Component {
         console.log('Productes '+ producte.nom)
         return(
             <View>
-                <Button title= {producte.nom} onPress={() => Alert.alert(producte.descripcio)}/>
-
+                <Button title= {producte.nom} 
+                onPress={() => Alert.alert(
+                    producte.nom, 
+                    producte.descripcio,
+                     [
+                         {text: 'Afegir', onPress: ()=> console.log('Producte afegit')},
+                         {text: 'Tornar', style: 'cancel'},
+                     ],
+                    )}/>
             </View>
-        )
-
+        );
     }
 
     render() {
