@@ -2,20 +2,24 @@ import React, {Component, PureComponent} from 'react';
 import { View, Text, Image, Button, SafeAreaView, Alert} from 'react-native';
 import { styles } from './Styles';
 import Header from "../Header/Header";
+import Popup from 'react-native-popup';
 
 const arrayProductes=[
     {
         "id":1,
         "temperatura":"fred",
         "nom":"Pernil",
+        "descripcio": "Hola",
     },{
         "id":2,
         "temperatura":"fred",
         "nom":"Nocilla",
+        "descripcio": "Holaa",
     },{
         "id":3,
         "temperatura":"fred",
         "nom":"Formatge",
+        "descripcio": "Holaaa",
     },{
         "id":4,
         "temperatura":"fred",
@@ -40,6 +44,7 @@ const arrayProductes=[
         "id":9,
         "temperatura":"calent",
         "nom":"Frankfurt",
+        "descripcio": "Holaaa",
     },{
         "id":10,
         "temperatura":"calent",
@@ -55,6 +60,27 @@ const arrayProductes=[
     }];
 
 
+<<<<<<< HEAD
+=======
+    const arrayPastes=[
+        {
+            "id":1,
+            "temperatura": "none",
+            "nom": "Donut",
+            "descripcio": "a",
+        },{
+            "id":2,
+            "temperatura": "none",
+            "nom": "Caracola",
+            "descripcio": "Adios",
+        },{
+            "id":3,
+            "temperatura": "none",
+            "nom": "Crosant",
+            "descripcio": "Hola",
+        }
+    ];
+>>>>>>> d43fa123f7b156f176681e4842a7422329f31daa
 class Productes extends Component {
     private props: any;
     constructor(props: any) {
@@ -63,9 +89,8 @@ class Productes extends Component {
         /* this.state = {
 
          }*/
-
-        
     }
+<<<<<<< HEAD
 
     private imprimirProducto(producte){
         console.log('Productes '+ producte.nom)
@@ -74,6 +99,24 @@ class Productes extends Component {
                 <Button title= {producte.nom}> </Button>
             </View>
         )
+=======
+    
+    private imprimirProductos(productes){
+        console.log('ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd')
+        console.log(productes)
+
+        for(let i=0; i<productes.length;i++){
+            console.log(productes[i])
+            return(
+                
+                <View>
+                    <Button title= {arrayProductes[productes[i]].nom}
+                     onPress={() => Alert.alert(arrayProductes[productes[i]].descripcio)}></Button>
+                     
+                </View>
+            )
+        }
+>>>>>>> d43fa123f7b156f176681e4842a7422329f31daa
     }
 
     render() {
