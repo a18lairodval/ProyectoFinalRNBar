@@ -59,9 +59,6 @@ const arrayProductes=[
         "nom":"Hamburguesa",
     }];
 
-
-<<<<<<< HEAD
-=======
     const arrayPastes=[
         {
             "id":1,
@@ -80,7 +77,6 @@ const arrayProductes=[
             "descripcio": "Hola",
         }
     ];
->>>>>>> d43fa123f7b156f176681e4842a7422329f31daa
 class Productes extends Component {
     private props: any;
     constructor(props: any) {
@@ -90,33 +86,16 @@ class Productes extends Component {
 
          }*/
     }
-<<<<<<< HEAD
-
     private imprimirProducto(producte){
         console.log('Productes '+ producte.nom)
         return(
             <View>
-                <Button title= {producte.nom}> </Button>
+                    <Button title= {producte.nom}
+                     onPress={() => Alert.alert(producte.descripcio)}/>
+
             </View>
         )
-=======
-    
-    private imprimirProductos(productes){
-        console.log('ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd')
-        console.log(productes)
 
-        for(let i=0; i<productes.length;i++){
-            console.log(productes[i])
-            return(
-                
-                <View>
-                    <Button title= {arrayProductes[productes[i]].nom}
-                     onPress={() => Alert.alert(arrayProductes[productes[i]].descripcio)}></Button>
-                     
-                </View>
-            )
-        }
->>>>>>> d43fa123f7b156f176681e4842a7422329f31daa
     }
 
     render() {
