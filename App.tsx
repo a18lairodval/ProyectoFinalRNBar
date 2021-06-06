@@ -8,6 +8,7 @@ import bocatas from "./Pantallas/Bocatas/bocatas";
 import Carousel from 'react-native-snap-carousel';
 import { Dimensions } from 'react-native';
 import {GlobalVariables} from "./global/variables";
+import MenuLogin from "./Pantallas/menuLogin/MenuLogin";
 
 const AppNavigator = createSwitchNavigator(
     {
@@ -31,7 +32,7 @@ function renderCarouselItem(itemAndIndex) {
         );
     } else {
         return (
-            <Text>Login</Text>
+            <MenuLogin/>
         );
     }
 }

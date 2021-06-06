@@ -20,8 +20,9 @@ class Header extends Component <any, any>{
     }
 
     render() {
-        let isLogged=true;
-        let productos=[1,12,23, 1,12,1,12,23, 1,12,1,12,23, 1,12];
+        GlobalVariables.isLogged=true;
+        GlobalVariables.credit=10.40;
+        GlobalVariables.productosCarritoId=[1,12,23, 1,12,1,12,23];
 
         return (
             <View style={{
@@ -41,17 +42,17 @@ class Header extends Component <any, any>{
                         resizeMode = "contain"
                         source={require('../../complementos/iconos/carrito.png')}
                     />
-                    {productos.length>0&& <View
-                        style={{backgroundColor:'red', position:'absolute', left:'63%', bottom:'7%', paddingHorizontal:productos.length>9?'4%':'8%', borderRadius:15}}>
-                        <Text style={{textAlign:'center', color:'white', fontSize:12}}>{productos.length}</Text>
+                    {GlobalVariables.productosCarritoId.length>0&& <View
+                        style={{backgroundColor:'red', position:'absolute', left:'63%', bottom:'7%', paddingHorizontal:GlobalVariables.productosCarritoId.length>9?'4%':'8%', borderRadius:15}}>
+                        <Text style={{textAlign:'center', color:'white', fontSize:12}}>{GlobalVariables.productosCarritoId.length}</Text>
                     </View>}
                 </TouchableOpacity>
                 <View style={{flex:60}}>
                     <View style={{width:'100%' , textAlign:'center', marginTop: 10}}>
-                        {isLogged?
+                        {GlobalVariables.isLogged?
                             <View style={{display:'flex', flexDirection:'row' }}>
                                 <View style={{flex:1}}/>
-                                <Text style={{fontWeight: 'bold',fontSize: 23, alignSelf:'center'}}>Credit: 6.40€</Text>
+                                <Text style={{fontWeight: 'bold',fontSize: 23, alignSelf:'center'}}>Credit: {GlobalVariables.credit}€</Text>
                                 {/*<Image source={require('../../complementos/iconos/moneda.png')}*/}
                                 {/*       */}
                                 {/*       style={{height: 30, width:30, backgroundColor:'blue'}}/>*/}

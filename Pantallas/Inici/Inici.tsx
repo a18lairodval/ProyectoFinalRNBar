@@ -34,11 +34,11 @@ class Inici extends Component {
             {
                 "id":1,
                 "nom":"Bocata",
-                "imagen":require("../../complementos/fotos/coke.jpeg")
+                "imagen":require("../../complementos/fotos/Iberico.jpg")
             },{
                 "id":2,
                 "nom":"Begudes",
-                "imagen":"../../complementos/fotos/Pasta.jpeg"
+                "imagen":require("../../complementos/fotos/Pasta.jpeg")
 
             },{
                 "id":3,
