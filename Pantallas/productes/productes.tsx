@@ -90,8 +90,7 @@ class Productes extends Component {
         console.log('Productes '+ producte.nom)
         return(
             <View>
-                    <Button title= {producte.nom}
-                     onPress={() => Alert.alert(producte.descripcio)}/>
+                <Button title= {producte.nom} onPress={() => Alert.alert(producte.descripcio)}/>
 
             </View>
         )
