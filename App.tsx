@@ -4,7 +4,6 @@ import Inici from "./Pantallas/Inici/Inici";
 import Header from "./Pantallas/Header/Header";
 import Productes from "./Pantallas/productes/productes";
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
-import bocatas from "./Pantallas/Bocatas/bocatas";
 import Carousel from 'react-native-snap-carousel';
 import { Dimensions } from 'react-native';
 import {GlobalVariables} from "./global/variables";
@@ -14,7 +13,6 @@ const AppNavigator = createSwitchNavigator(
     {
         pantallaInici: Inici,
         pantallProductes: Productes,
-        pantallaBocata: bocatas
     },
     {
         initialRouteName: "pantallaInici"
