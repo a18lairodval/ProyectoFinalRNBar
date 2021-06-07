@@ -3,6 +3,8 @@ import { View, Text, Image, Button, SafeAreaView, Alert, StyleSheet} from 'react
 import { styles } from './Styles';
 import Header from "../Header/Header";
 import Popup from 'react-native-popup';
+import APIKit from "../../APIKit";
+import {GlobalVariables} from "../../global/variables";
 
 const arrayProductes=[
     {
@@ -123,7 +125,7 @@ class Productes extends Component {
                 <Header/>
                 <Button
                     title= 'Tornar'
-                    onPress={() => this.props.navigation.navigate('pantallaInici') }
+                    onPress={() =>  this.props.navigation.navigate('pantallaInici') }
                 />
                 <Text>Entrepans</Text>
                 {producteNone.length==0?

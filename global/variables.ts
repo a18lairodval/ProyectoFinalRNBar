@@ -1,6 +1,7 @@
 export class GlobalVariables {
     public static mainCarousel = null;
     public static version = null;
+    public static palabra = null;
     //LogedInfo
     public static isLogged = null;
     public static userNom = null;
