@@ -1,14 +1,46 @@
-import React, {Component} from 'react';
-import {Text, View,ImageBackground,TouchableOpacity,Button,} from "react-native";
+import React, {Component, useState} from 'react';
+import {Text, View,ImageBackground,TouchableOpacity,Button,Modal,Pressable } from "react-native";
 import { styles } from './Styles';
 import {GlobalVariables} from "../../global/variables";
 //import { GoogleSignin, GoogleSigninButton } from '@react-native-google-signin/google-signin';
 
 
-
+const [modalVisible, setModalVisible] = useState(false);
 class MenuLogin extends Component {
+    printComanda(comanda: any){
+        return(
+            <View>
+                <Text>Productes</Text>
+                {comanda.productes.map((item: any) => {
+                    return (
+                        <View>
+                            <Text>{item.nameProd}</Text>
+                            <Text>{item.price}</Text>
+                        </View>
+                    )
+                })}
+                <Text>Total {}</Text>
+            </View>
+        )
+    }
+    modalReservasPendientes(){
+        return(
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modalVisible}
+            >
+                <View style={styles.centeredView}>
+                    {xxx.map((item: any, index: number) => {
+                        return this.printComanda(item);
+                    }
+                    )}
+                </View>
+            </Modal>
+        )
+    }
     render() {
-        GlobalVariables.isLogged =false;
+        GlobalVariables.isLogged =true;
         GlobalVariables.userNom= "Laia Rodés";
         GlobalVariables.pedidosPendientes=[1,6,6,6];
         GlobalVariables.todosPedidos=[1,2,1,6,6,6]
@@ -73,6 +105,7 @@ class MenuLogin extends Component {
                             </View>
                             <View>
                                 {/*Aqui va boton log Out*/}
+                                {/*<Text>Log Out</Text>*/}
                             </View>
                         </View>
                     </View>
