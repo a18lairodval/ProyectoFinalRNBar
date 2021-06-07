@@ -13,20 +13,20 @@ export default class APIKit extends React.Component {
         axios
             .get('pato/categoria/lista')
             .then(function (response) {
-                GlobalVariables.palabra=JSON.stringify(response.data)
+                GlobalVariables.listaCategorias=JSON.stringify(response.data)
             })
             .catch(function (error) {
                 alert(error.message);
             })
     }
-
-
-
-    render() {
-        return (
-            <ul>
-                { GlobalVariables.palabra.map(person => <li>{person.name}</li>)}
-            </ul>
-        )
+    public static getProductoList () {
+        axios
+            .get('pato/producto/lista')
+            .then(function (response) {
+                GlobalVariables.productoCategorias=JSON.stringify(response.data)
+            })
+            .catch(function (error) {
+                alert(error.message);
+            })
     }
 }
