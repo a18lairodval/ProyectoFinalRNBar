@@ -154,7 +154,7 @@ class Productes extends Component {
                 <Button title= {producte.nom} 
                 onPress={() => Alert.alert(
                     producte.nom, 
-                    producte.descripcio,
+                    producte.preu,
                      [
                          {text: 'Afegir', onPress: ()=> console.log('Producte afegit')},
                          {text: 'Tornar', style: 'cancel'},

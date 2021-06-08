@@ -52,16 +52,15 @@ class Inici extends Component {
             },{
                 "id":2,
                 "nom":"Begudes",
-                "imagen":require("../../complementos/fotos/Pasta.jpeg")
-
+                "imagen":require("../../complementos/fotos/agua.jpeg")
             },{
                 "id":3,
                 "nom":"Pastes",
-                "imagen":require("../../complementos/fotos/Iberico.jpg")
+                "imagen":require("../../complementos/fotos/Pasta.jpeg")
             },{
                 "id":4,
                 "nom":"Snaks",
-                "imagen":require("../../complementos/fotos/Iberico.jpg")
+                "imagen":require("../../complementos/fotos/snack.jpeg")
             }];
 
         return (
