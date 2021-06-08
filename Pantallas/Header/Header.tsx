@@ -22,7 +22,6 @@ class Header extends Component <any, any>{
     render() {
         GlobalVariables.isLogged=true;
         GlobalVariables.credit=10.40;
-        GlobalVariables.productosCarritoId=[1,12,23, 1,12,1,12,23];
 
         return (
             <View style={{

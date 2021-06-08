@@ -16,13 +16,7 @@ class Inici extends Component {
 
     }
 
-    componentDidMount() {
-        if(GlobalVariables.isLogged){
-            APIKit.getCategoriasList ();
-            APIKit.getProductoList();
-            APIKit.getreservaList(GlobalVariables.userId);
-        }
-    }
+
     private categoria(item: any, index: number){
         return(
             <TouchableOpacity

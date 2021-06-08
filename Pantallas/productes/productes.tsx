@@ -53,8 +53,7 @@ const arrayProductes=[
         "nom":"Hamburguesa",
         "preu": "2.20",
     }];
-
-    const arrayPastes=[
+ const arrayPastes=[
         {
             "id":1,
             "temperatura": "none",
@@ -75,7 +74,7 @@ const arrayProductes=[
             "preu": "1.40",
         }
     ];
-    const arraySnacks=[
+ const arraySnacks=[
         {
             "id":1,
             "temperatura":"none",
@@ -97,8 +96,8 @@ const arrayProductes=[
             "nom": "Kit kat",
             "preu": "1,50",
         }
-    ];   
-    const arrayBegudes=[
+        ];
+ const arrayBegudes=[
         {
             "id":1,
             "temperatura": "fred",
@@ -134,10 +133,7 @@ const arrayProductes=[
             "temperatura": "calent",
             "nom": "Infusió",
             "preu": "1,00",
-        }
-    ];
-    
-    
+        }];
 class Productes extends Component {
     private props: any;
     constructor(props: any) {
@@ -147,19 +143,37 @@ class Productes extends Component {
 
          }*/
     }
+    addProducte(producte) {
+        let anyadidoCarrito = false;
+        let array = GlobalVariables.productosCarritoId;
+        for (let i = 0; i < array.length && !anyadidoCarrito; i++) {
+            if (array[i] == producte.id) {
+                console.log(array[i] == producte.id)
+                anyadidoCarrito = true;
+            }
+        }
+        if (!anyadidoCarrito) {
+            console.log(array)
+            array.push(producte.id);
+            GlobalVariables.productosCarritoId = array;
+            this.props.navigation.navigate('pantallaInici')
+        }
+    }
     private imprimirProducto(producte){
         console.log('Productes '+ producte.nom)
         return(
             <View>
-                <Button title= {producte.nom} 
-                onPress={() => Alert.alert(
-                    producte.nom, 
-                    producte.preu,
-                     [
-                         {text: 'Afegir', onPress: ()=> console.log('Producte afegit')},
-                         {text: 'Tornar', style: 'cancel'},
-                     ],
-                    )}/>
+                <Button  title= {producte.nom}
+                         onPress={() =>{this.addProducte(producte)}}
+                // onPress={() => Alert.alert(
+                //     producte.nom,
+                //     producte.preu,
+                //      [
+                //          {text: 'Afegir', onPress: ()=> console.log('Producte afegit')},
+                //          {text: 'Tornar', style: 'cancel'},
+                //      ],
+                //     )}
+                />
             </View>
         );
     }

@@ -15,6 +15,6 @@ export class GlobalVariables {
     public static imagenLoged=null;
 
     //CompraIngo
-    public static productosCarritoId = [];
+    public static productosCarritoId = null;
 
 }

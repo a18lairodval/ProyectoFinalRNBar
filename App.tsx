@@ -9,6 +9,7 @@ import { Dimensions } from 'react-native';
 import {GlobalVariables} from "./global/variables";
 import MenuLogin from "./Pantallas/menuLogin/MenuLogin";
 import axios from 'axios';
+import APIKit from "./APIKit";
 
 const AppNavigator = createSwitchNavigator(
     {
@@ -24,6 +25,7 @@ const AppNavigator = createSwitchNavigator(
 
 function renderCarouselItem(itemAndIndex) {
     //console.log("index: " + itemAndIndex["index"].toString());
+
     if (itemAndIndex["index"] == 0) {
         return (
             <View style={{backgroundColor:"#FFFFFF", width: '100%', height: '100%'}}>
@@ -42,7 +44,15 @@ const windowWidth = Dimensions.get('window').width;
 
 const AppContainer = createAppContainer(AppNavigator);
 class App extends React.Component {
+    componentDidMount() {
+        GlobalVariables.productosCarritoId=[];
+        if(GlobalVariables.isLogged){
+            APIKit.getCategoriasList ();
+            APIKit.getProductoList();
+            APIKit.getreservaList(GlobalVariables.userId);
 
+        }
+    }
     render() {
         // ref={(c) => { this._carousel = c; }}
         // data={[null, null]}
