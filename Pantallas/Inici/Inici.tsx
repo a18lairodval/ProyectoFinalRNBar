@@ -3,11 +3,25 @@ import { TouchableOpacity,Button,ScrollView, View, Text, TouchableHighlight,Imag
 import Header from "./../Header/Header";
 import { styles } from './Styles';
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
+import {GlobalVariables} from "../../global/variables";
+import APIKit from "../../APIKit";
+
+
+
 class Inici extends Component {
+
     private props: any;
     constructor(props: any) {
         super(props);
 
+    }
+
+    componentDidMount() {
+        if(GlobalVariables.isLogged){
+            APIKit.getCategoriasList ();
+            APIKit.getProductoList();
+            APIKit.getreservaList(GlobalVariables.userId);
+        }
     }
     private categoria(item: any, index: number){
         return(

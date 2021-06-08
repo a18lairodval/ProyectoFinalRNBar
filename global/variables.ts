@@ -1,12 +1,13 @@
 export class GlobalVariables {
     public static mainCarousel = null;
-    public static version = null;
     public static listaCategorias = null;
-    public static ProductoCategorias = null;
+    public static productoCategorias = null;
+    public static listaReserva = null;
     public static ingreso = null;
     public static usuario = null;
     //LogedInfo
     public static isLogged = null;
+    public static userId = null;
     public static userNom = null;
     public static credit = null;
     public static pedidosPendientes = null;
