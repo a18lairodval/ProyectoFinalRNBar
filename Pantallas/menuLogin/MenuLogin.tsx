@@ -23,51 +23,20 @@ import APIKit from "../../APIKit";
 // }
 
 
-const comandesProductes=[
+GlobalVariables.pedidos=[
     {
         "id":1,
-        "temperatura":"fred",
-        "nom":"Pernil",
-        "descripcio": "Hola",
-        "preu": "1.60",
+        "preu":1.6,
+        "usuario":"Pernil",
+        "estado": "Pendent",
+        "llistaItems": [1,2]
+
     },{
         "id":2,
-        "temperatura":"fred",
-        "nom":"Nocilla",
-        "descripcio": "Holaa",
-        "preu": "1.70",
-    },{
-        "id":3,
-        "temperatura":"fred",
-        "nom":"Formatge",
-        "descripcio": "Holaaa",
-        "preu": "1.50",
-    },{
-        "id":4,
-        "temperatura":"fred",
-        "nom":"Fuet",
-        "preu": "1.60",
-    },{
-        "id":5,
-        "temperatura":"calent",
-        "nom":"Frankfurt",
-        "descripcio": "Holaaa",
-        "preu": "2.00",
-    },{
-        "id":6,
-        "temperatura":"calent",
-        "nom":"Bacó",
-        "preu": "1.60",
-    },{
-        "id":7,
-        "temperatura":"calent",
-        "nom":"Llom",
-        "preu": "2.10",
-    },{
-        "id":8,
-        "temperatura":"calent",
-        "nom":"Hamburguesa",
-        "preu": "2.20",
+        "preu":1.4,
+        "usuario":"Pernil",
+        "estado": "Finalitzat",
+        "llistaItems": [3,4]
     }];
 
 // const modalPendientesVisible= true;
@@ -89,11 +58,13 @@ class MenuLogin extends Component {
         return(
             <View>
                 <Text>Productes</Text>
-                {comanda.productes.map((item: any) => {
+                {comanda.llistaItems.map((item: any) => {
+                    let producto=APIKit.getProducto (item.usuario);
                     return (
                         <View>
-                            <Text>{item.nameProd}</Text>
-                            <Text>{item.price}</Text>
+                            {/*<Text>{producto.nom}</Text>*/}
+                            {/*<Text>{producto.preu}</Text>*/}
+                            <Text>Entra</Text>
                         </View>
                     )
                 })}
@@ -101,7 +72,7 @@ class MenuLogin extends Component {
             </View>
         )
     }
-    modalReservasPendientes(){
+    modalReservas(reservas){
         return(
             <Modal
                 animationType="slide"
@@ -109,30 +80,38 @@ class MenuLogin extends Component {
                 // visible={modalPendientesVisible}
             >
                 <View style={styles.centeredView}>
-                    <Text>Todo OK</Text>
+                    {reservas.map((item: any) => {
+                        this.printComanda(item);
+                    })}
                 </View>
             </Modal>
         )
     }
     render() {
+        let arrayPendientes=[];
+        GlobalVariables.pedidos.map((item: any) => {
+            if(item.estado=="Pendent"){
+                arrayPendientes.push(item);
+            }
+        });
 
         // GlobalVariables.isLogged =false;
         GlobalVariables.userNom= "Laia Rodés";
-        GlobalVariables.pedidosPendientes=[1,6,6,6];
-        GlobalVariables.todosPedidos=[1,2,1,6,6,6]
+
         GlobalVariables.imagenLoged=require("../../complementos/iconos/provaImage.png");
 
         let pedidosPendientes;
-        if (GlobalVariables.pedidosPendientes.length==1)
+
+        if (arrayPendientes.length==1)
             pedidosPendientes = '1 comanda';
-        else if (GlobalVariables.pedidosPendientes.length>1)
-            pedidosPendientes = GlobalVariables.pedidosPendientes.length+ ' comandes';
+        else if (arrayPendientes.length>1)
+            pedidosPendientes = arrayPendientes.length+ ' comandes';
 
         let totalPedidos;
-        if (GlobalVariables.todosPedidos.length==1)
+        if (GlobalVariables.pedidos.length==1)
             totalPedidos = '1 comanda';
-        else if (GlobalVariables.todosPedidos.length>1)
-            totalPedidos = GlobalVariables.todosPedidos.length+ ' comandes';
+        else if (GlobalVariables.pedidos.length>1)
+            totalPedidos = GlobalVariables.pedidos.length+ ' comandes';
 
         return (
             <View style={styles.pantallaMenu}>
@@ -167,21 +146,27 @@ class MenuLogin extends Component {
                             </View>
                             <View style={styles.contentInfo}>
                                 <Text style={styles.textInfo}>Comandes pendents: </Text>
-                                {GlobalVariables.pedidosPendientes.length==0?
+                                {arrayPendientes.length==0?
                                     <Text style={styles.textInfo}>Cap</Text>:
                                     <Button title={pedidosPendientes}  />//onPress={() =>{this.modalPendientesVisible=true}}
                                 }
                             </View>
                             <View style={styles.contentInfo}>
                                 <Text style={styles.textInfo}>Comandes realitzades: </Text>
-                                {GlobalVariables.todosPedidos.length==0?
+                                {GlobalVariables.pedidos.length==0?
                                     <Text style={styles.textInfo}>Cap</Text>:
                                     <Button title={totalPedidos} onPress={() =>console.log("TodoOk")} />
                                 }
                             </View>
-                            <View>
-                                {/*Aqui va boton log Out*/}
-                                {/*<Text>Log Out</Text>*/}
+                            <View style={styles.contentButton}>
+                                {/*<View style={{flex:1}}/>*/}
+                                <TouchableOpacity
+                                    style={styles.buttonGoogle}
+                                    // onPress={() => this.signOut()}
+                                >
+                                    <Text style={styles.submitButtonText}>Desconectarse</Text>
+                                </TouchableOpacity>
+                                {/*<View style={{flex:1}}/>*/}
                             </View>
                         </View>
                     </View>
@@ -198,17 +183,16 @@ class MenuLogin extends Component {
                             <Text style={styles.textStyle}>Registra't i gaudeix dels nostres productes</Text>
                         </View>
                         <View>
-                            {/*Aqui va el boton login*/}
-                            <TouchableOpacity
-                                // onPress={() => this.GooglesignIn()}
+                            <View style={styles.contentButton}>
+                                {/*<View style={{flex:1}}/>*/}
+                                <TouchableOpacity
+                                    style={styles.buttonGoogle}
+                                    // onPress={() => this.GooglesignIn()}
                                 >
-                                {/*<Image*/}
-                                {/*    style={styles.icons}*/}
-                                {/*    source={require('../../../assets/social/google.png')}*/}
-                                {/*/>*/}
-                                <Text style={styles.submitButtonText}>Conectarse</Text>
-                            </TouchableOpacity>
-
+                                    <Text style={styles.submitButtonText}>Conectarse amb google</Text>
+                                </TouchableOpacity>
+                                {/*<View style={{flex:1}}/>*/}
+                            </View>
                         </View>
                     </View>
                 }

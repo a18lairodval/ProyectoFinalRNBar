@@ -6,6 +6,9 @@ export const styles = StyleSheet.create({
         height: '100%',
         backgroundColor: '#00acef',
     },
+    contentButton:{
+        alignItems:'center'
+    },
     button:{
         alignItems: 'flex-end',
         margin: 10,
@@ -67,6 +70,9 @@ export const styles = StyleSheet.create({
         // marginTop: '3%',
         marginBottom:'6%',
         justifyContent: 'space-between'
+    },
+    buttonGoogle:{
+        backgroundColor: 'white',
+        padding:'5%',
     }
-
 });

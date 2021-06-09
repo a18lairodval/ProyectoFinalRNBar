@@ -12,8 +12,7 @@ export class GlobalVariables {
     public static userId = null;
     public static userNom = null;
     public static credit = null;
-    public static pedidosPendientes = null;
-    public static todosPedidos = null;
+    public static pedidos = null;
     public static imagenLoged=null;
 
     //CompraIngo
