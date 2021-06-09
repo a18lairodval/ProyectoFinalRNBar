@@ -61,7 +61,7 @@ class Inici extends Component {
           <View style={styles.contenedor}>
               <Header navigation={this.props.navigation}/>
               <View style={styles.titol}>
-                  <Text style={{fontSize: 20, fontWeight:'bold', margin: '5%'}}>Nuestros productos</Text>
+                  <Text style={{fontSize: 20, fontWeight:'bold', margin: '5%'}}>Els nostres productes</Text>
               </View>
               {/*<ScrollView>*/}
                   <View style={styles.productos}>

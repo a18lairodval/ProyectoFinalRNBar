@@ -1,9 +1,26 @@
 import React, { useState, Component } from 'react';
-import {Text, View,ImageBackground,TouchableOpacity,Button,Modal,Pressable } from "react-native";
+import {Text, View,ImageBackground,TouchableOpacity,Button,Modal, Image } from "react-native";
 import { styles } from './Styles';
 import {GlobalVariables} from "../../global/variables";
-//import { GoogleSignin, GoogleSigninButton } from '@react-native-google-signin/google-signin';
+import {GoogleSignin, statusCodes} from '@react-native-community/google-signin';
+// import AsyncStorage from '@react-native-community/async-storage';
+import APIKit from "../../APIKit";
 
+// GoogleSignin.configure({
+//     webClientId: '',// id google usuarios
+//     offlineAccess: true,
+//     forceCodeForRefreshToken: true,
+//     accountName: '',
+// });
+//
+// async function signOut(){
+//     try {
+//         await GoogleSignin.revokeAccess();
+//         await GoogleSignin.signOut();
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
 
 
 const comandesProductes=[
@@ -53,10 +70,20 @@ const comandesProductes=[
         "preu": "2.20",
     }];
 
-const modalPendientesVisible= false;
+// const modalPendientesVisible= true;
 const modalTotalReservasVisible= false;
 // const [modalVisible, setModalVisible] = useState(false);
+
 class MenuLogin extends Component {
+    // GooglesignIn = async () => {
+    //     try {
+    //         await GoogleSignin.hasPlayServices();
+    //         const info = await GoogleSignin.signIn();
+    //         APIKit.postUsuari(info)
+    //     } catch (error) {
+    //        alert('Error al iniciar sesion, intentalo más tarde')
+    //     }
+    // };
 
     printComanda(comanda: any){
         return(
@@ -79,7 +106,7 @@ class MenuLogin extends Component {
             <Modal
                 animationType="slide"
                 transparent={true}
-                visible={modalPendientesVisible}
+                // visible={modalPendientesVisible}
             >
                 <View style={styles.centeredView}>
                     <Text>Todo OK</Text>
@@ -89,7 +116,7 @@ class MenuLogin extends Component {
     }
     render() {
 
-        GlobalVariables.isLogged =true;
+        // GlobalVariables.isLogged =false;
         GlobalVariables.userNom= "Laia Rodés";
         GlobalVariables.pedidosPendientes=[1,6,6,6];
         GlobalVariables.todosPedidos=[1,2,1,6,6,6]
@@ -142,7 +169,7 @@ class MenuLogin extends Component {
                                 <Text style={styles.textInfo}>Comandes pendents: </Text>
                                 {GlobalVariables.pedidosPendientes.length==0?
                                     <Text style={styles.textInfo}>Cap</Text>:
-                                    <Button title={pedidosPendientes} onPress={() =>{this.modalPendientesVisible=true}} />
+                                    <Button title={pedidosPendientes}  />//onPress={() =>{this.modalPendientesVisible=true}}
                                 }
                             </View>
                             <View style={styles.contentInfo}>
@@ -172,6 +199,16 @@ class MenuLogin extends Component {
                         </View>
                         <View>
                             {/*Aqui va el boton login*/}
+                            <TouchableOpacity
+                                // onPress={() => this.GooglesignIn()}
+                                >
+                                {/*<Image*/}
+                                {/*    style={styles.icons}*/}
+                                {/*    source={require('../../../assets/social/google.png')}*/}
+                                {/*/>*/}
+                                <Text style={styles.submitButtonText}>Conectarse</Text>
+                            </TouchableOpacity>
+
                         </View>
                     </View>
                 }

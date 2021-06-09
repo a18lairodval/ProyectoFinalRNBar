@@ -6,6 +6,9 @@ export const styles = StyleSheet.create({
         height:'100%',
         display: 'flex',
     },
+    componenteScroll:{
+
+    },
     titol: {
         flex: 10,
         alignItems: 'center',

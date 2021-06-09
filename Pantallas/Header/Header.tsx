@@ -20,7 +20,7 @@ class Header extends Component <any, any>{
     }
 
     render() {
-        GlobalVariables.isLogged=true;
+        // GlobalVariables.isLogged=true;
         GlobalVariables.credit=10.40;
 
         return (
@@ -34,7 +34,7 @@ class Header extends Component <any, any>{
             }}>
                 <TouchableOpacity
                     style={{flex:20, alignContent: 'center', display: 'flex', justifyContent: 'center'}}
-                    onPress={() => this.props.navigation.navigate('pantallaBocata')}
+                    onPress={() => {GlobalVariables.productosCarritoId.length!=0? this.props.navigation.navigate('pantallaCarrito'):alert('El carrito está vacio')}}
                 >
                     <ImageBackground
                         style={{ flex:1, marginHorizontal: '12%', marginVertical:'7%'}}

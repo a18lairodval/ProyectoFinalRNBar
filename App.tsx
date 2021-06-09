@@ -10,11 +10,13 @@ import {GlobalVariables} from "./global/variables";
 import MenuLogin from "./Pantallas/menuLogin/MenuLogin";
 import axios from 'axios';
 import APIKit from "./APIKit";
+import Carrito from "./Pantallas/carrito/Carrito";
 
 const AppNavigator = createSwitchNavigator(
     {
         pantallaInici: Inici,
         pantallProductes: Productes,
+        pantallaCarrito: Carrito,
     },
     {
         initialRouteName: "pantallaInici"
@@ -46,10 +48,11 @@ const AppContainer = createAppContainer(AppNavigator);
 class App extends React.Component {
     componentDidMount() {
         GlobalVariables.productosCarritoId=[];
+        GlobalVariables.isLogged=true;
         if(GlobalVariables.isLogged){
             APIKit.getCategoriasList ();
             APIKit.getProductoList();
-            APIKit.getreservaList(GlobalVariables.userId);
+            APIKit.getReservaList(GlobalVariables.userId);
 
         }
     }
