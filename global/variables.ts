@@ -2,7 +2,8 @@ export class GlobalVariables {
     public static mainCarousel = null;
     public static listaCategorias = null;
     public static productoCategorias = null;
-    public static listaTodosProductos = null;
+    public static producteSeleccionat = null;
+    public static producteSeleccionatNom = null;
     public static listaReserva = null;
     public static ingreso = null;
     public static usuario = null;

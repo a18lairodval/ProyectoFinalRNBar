@@ -21,7 +21,12 @@ class Inici extends Component {
         return(
             <TouchableOpacity
                 style={styles.button}
-                onPress={() => this.props.navigation.navigate('pantallProductes')}
+                onPress={() => {
+                    this.props.navigation.navigate('pantallProductes');
+                    GlobalVariables.producteSeleccionat=item.id;
+                    GlobalVariables.producteSeleccionatNom=item.nom;
+
+                }}
             >
                 <ImageBackground
                     style={styles.imagen}
@@ -41,7 +46,7 @@ class Inici extends Component {
         let arrayCategorias=[
             {
                 "id":1,
-                "nom":"Bocata",
+                "nom":"Entrepans",
                 "imagen":require("../../complementos/fotos/Iberico.jpg")
             },{
                 "id":2,

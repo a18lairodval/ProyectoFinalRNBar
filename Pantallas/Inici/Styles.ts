@@ -6,8 +6,8 @@ export const styles = StyleSheet.create({
         height:'100%',
         display: 'flex',
     },
-    componenteScroll:{
-
+    text:{
+        color:'white'
     },
     titol: {
         flex: 10,

@@ -31,7 +31,6 @@ function renderCarouselItem(itemAndIndex) {
     if (itemAndIndex["index"] == 0) {
         return (
             <View style={{backgroundColor:"#FFFFFF", width: '100%', height: '100%'}}>
-                {/*<Header/>*/}
                 <AppContainer />
             </View>
         );
@@ -53,7 +52,6 @@ class App extends React.Component {
             APIKit.getCategoriasList ();
             APIKit.getProductoList();
             APIKit.getReservaList(GlobalVariables.userId);
-
         }
     }
     render() {

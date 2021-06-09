@@ -1,13 +1,12 @@
 import React, {Component, PureComponent} from 'react';
-import { View, Text, Image, Button, SafeAreaView, Alert, StyleSheet} from 'react-native';
+import { View, Text, Image, Button, TouchableOpacity} from 'react-native';
 import { styles } from './Styles';
 import Header from "../Header/Header";
 import Popup from 'react-native-popup';
 import APIKit from "../../APIKit";
 import {GlobalVariables} from "../../global/variables";
 
-
-const arrayProductes=[
+const arrayEntrepans=[
     {
         "id":1,
         "temperatura":"fred",
@@ -53,87 +52,88 @@ const arrayProductes=[
         "nom":"Hamburguesa",
         "preu": 2.20,
     }];
- const arrayPastes=[
-        {
-            "id":1,
-            "temperatura": "none",
-            "nom": "Donut",
-            "descripcio": "a",
-            "preu": 1.00,
-        },{
-            "id":2,
-            "temperatura": "none",
-            "nom": "Caracola",
-            "descripcio": "Adios",
-            "preu": 1.10,
-        },{
-            "id":3,
-            "temperatura": "none",
-            "nom": "Crosant",
-            "descripcio": "Hola",
-            "preu": 1.40,
-        }
-    ];
- const arraySnacks=[
-        {
-            "id":1,
-            "temperatura":"none",
-            "nom": "Patates",
-            "preu": 1.20,
-        },{
-            "id":2,
-            "temperatura": "none",
-            "nom": "Piruletas",
-            "preu": 1.40,
-        },{
-            "id":3,
-            "temperatura": "none",
-            "nom": "Kinder bueno",
-            "preu": 1.50,
-        },{
-            "id":4,
-            "temperatura": "none",
-            "nom": "Kit kat",
-            "preu": 1.50,
-        }
-        ];
- const arrayBegudes=[
-        {
-            "id":1,
-            "temperatura": "fred",
-            "nom": "CocaCola",
-            "preu": 1.20,
-        },{
-            "id":2,
-            "temperatura": "fred",
-            "nom": "Fanta",
-            "preu": 1.20,
-        },{
-            "id":3,
-            "temperatura": "fred",
-            "nom": "Aigua",
-            "preu": 1.00,
-        },{
-            "id":4,
-            "temperatura": "fred",
-            "nom": "Aquarius",
-            "preu": 1.20,
-        },{
-            "id":5,
-            "temperatura": "none",
-            "nom": "Bifrutas",
-            "preu": 1.40,
-        },{
-            "id":6,
-            "temperatura": "calent",
-            "nom": "Cafe",
-            "preu": 1.00,
-        },{
-            "id":7,
-            "temperatura": "calent",
-            "nom": "Infusió",
-            "preu": 1.00,
-        }];
+const arrayPastes=[
+    {
+        "id":9,
+        "temperatura": "none",
+        "nom": "Donut",
+        "descripcio": "a",
+        "preu": 1.00,
+    },{
+        "id":10,
+        "temperatura": "none",
+        "nom": "Caracola",
+        "descripcio": "Adios",
+        "preu": 1.10,
+    },{
+        "id":11,
+        "temperatura": "none",
+        "nom": "Crosant",
+        "descripcio": "Hola",
+        "preu": 1.40,
+    }
+];
+const arraySnacks=[
+    {
+        "id":12,
+        "temperatura":"none",
+        "nom": "Patates",
+        "preu": 1.20,
+    },{
+        "id":13,
+        "temperatura": "none",
+        "nom": "Piruletas",
+        "preu": 1.40,
+    },{
+        "id":14,
+        "temperatura": "none",
+        "nom": "Kinder bueno",
+        "preu": 1.50,
+    },{
+        "id":15,
+        "temperatura": "none",
+        "nom": "Kit kat",
+        "preu": 1.50,
+    }
+];
+const arrayBegudes=[
+    {
+        "id":16,
+        "temperatura": "fred",
+        "nom": "CocaCola",
+        "preu": 1.20,
+    },{
+        "id":17,
+        "temperatura": "fred",
+        "nom": "Fanta",
+        "preu": 1.20,
+    },{
+        "id":18,
+        "temperatura": "fred",
+        "nom": "Aigua",
+        "preu": 1.00,
+    },{
+        "id":19,
+        "temperatura": "fred",
+        "nom": "Aquarius",
+        "preu": 1.20,
+    },{
+        "id":20,
+        "temperatura":"calent",
+        "nom": "Bifrutas",
+        "preu": 1.40,
+    },{
+        "id":21,
+        "temperatura": "calent",
+        "nom": "Cafe",
+        "preu": 1.00,
+    },{
+        "id":22,
+        "temperatura": "calent",
+        "nom": "Infusió",
+        "preu": 1.00,
+    }];
+
 class Productes extends Component {
     private props: any;
     constructor(props: any) {
@@ -157,14 +157,17 @@ class Productes extends Component {
             array.push(producte.id);
             GlobalVariables.productosCarritoId = array;
             this.props.navigation.navigate('pantallaInici')
+        }else{
+            alert("Aquest producta ja s'ha afegit")
         }
     }
     private imprimirProducto(producte){
         console.log('Productes '+ producte.nom)
         return(
             <View>
-                <Button  title= {producte.nom}
-                         onPress={() =>{this.addProducte(producte)}}
+                <TouchableOpacity
+                    style={{margin:'1%', backgroundColor: '#00acef', height:25, alignItems:'center',  borderRadius:15, padding:3}}
+                    onPress={() =>{this.addProducte(producte)}}
                 // onPress={() => Alert.alert(
                 //     producte.nom,
                 //     producte.preu,
@@ -173,12 +176,27 @@ class Productes extends Component {
                 //          {text: 'Tornar', style: 'cancel'},
                 //      ],
                 //     )}
-                />
+                >
+                    <Text style={{color:'white'}}>{producte.nom+'      '+producte.preu+'€'}</Text>
+                </TouchableOpacity>
+
+
+
+
             </View>
         );
     }
     render() {
-       
+        let arrayProductes;
+        if(GlobalVariables.producteSeleccionat==1){
+            arrayProductes=arrayEntrepans;
+        }else if(GlobalVariables.producteSeleccionat==2){
+            arrayProductes=arrayBegudes;
+        }else if(GlobalVariables.producteSeleccionat==3){
+            arrayProductes=arrayPastes;
+        }else{
+            arrayProductes=arraySnacks;
+        }
             let producteFred=[];
             let producteCalent=[];
             let producteNone=[];
@@ -195,20 +213,17 @@ class Productes extends Component {
         return (
             <View style={styles.contenedor}>
                 <Header/>
-                <Button
-                    title= 'Tornar'
-                    onPress={() =>  this.props.navigation.navigate('pantallaInici') }
-                />
-                <Text>Entrepans</Text>
+
+                <Text style={{fontSize:30, textAlign:'center', fontWeight:'bold', marginTop:30}}>{GlobalVariables.producteSeleccionatNom}</Text>
                 {producteNone.length==0?
                     <View>
-                        <Text>Productes freds</Text>
+                        <Text style={{fontSize:20,  marginTop:30}}>Productes freds</Text>
                         <View>
                             {producteFred.map((item: any) => {
                                 return this.imprimirProducto(arrayProductes[item]);
                             })}
                         </View>
-                        <Text>Productes calents</Text>
+                        <Text style={{fontSize:20, marginTop:30}}>Productes calents</Text>
                         <View>
                             {producteCalent.map((item: any) => {
                                 return this.imprimirProducto(arrayProductes[item]);
@@ -216,13 +231,22 @@ class Productes extends Component {
                         </View>
                     </View>
                     :
-                    <View>
-                        <Text>Snacks</Text>
+                    <View style={{marginTop:30}}>
                         {producteNone.map((item: any) => {
                             return this.imprimirProducto(arrayProductes[item]);
                         })}
                     </View>
                 }
+                <View style={{width:'100%', alignItems:'flex-end', padding:20}}>
+                    <View style={{width:100, marginTop:50}}>
+                        <Button
+                            title= 'Tornar'
+                            butonStyle={{borderRadius: 15}}
+
+                            onPress={() =>  this.props.navigation.navigate('pantallaInici') }
+                        />
+                    </View>
+                </View>
             </View>
         );
     }
